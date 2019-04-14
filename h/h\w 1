@@ -19,10 +19,7 @@ class OurAwesomeException(Exception):
 
 
 def is_two_object_has_same_value(first: Any, second: Any) -> bool:
-    if first == second:
-        return True
-    else:
-        return False
+    return first == second
 
     """
     If @first and @second has same value should return True
@@ -32,10 +29,7 @@ def is_two_object_has_same_value(first: Any, second: Any) -> bool:
 
 
 def is_two_objects_has_same_type(first: Any, second: Any) -> bool:
-    if type(first) == type(second):
-        return True
-    else:
-        return False
+    return type(first) is type(second)
 
     """
     If @first and @second has same type should return True
@@ -79,11 +73,11 @@ pass
 
 def multiple_ints_with_conversion(first_value: Any, second_value: Any) -> int:
     try:
-        if isintance(first_value, int) or isintence(second_value, int):
-            result = first_value * second_value
+        first_value = int(first_value)
+        second_value = int(second_value)
+        return first_value * second_value
     except Exception:
         raise OurAwesomeException
-    return result
 
 
 """
@@ -116,10 +110,7 @@ pass
 
 
 def is_word_in_text(word: str, text: str) -> bool:
-    if text is not str(" , ") and list:
-        return True
-    if text is str(" ,  ") and list:
-        return False
+    return word in text
 
     """
     If text contain word return True
@@ -141,21 +132,30 @@ def is_word_in_text(word: str, text: str) -> bool:
 
 def some_loop_exercise() -> list:
     """
-    Use loop to create list that contain int values from 0 to 12 except 6 and 7
+        Use loop to create list that contain int values from 0 to 12 except 6 and 7
     """
-    pass
+    first_list = []
+    ban_value = [6, 7]
+    for i in range(0, 13):
+        if i not in ban_value :
+            first_list.append(i)
+    return first_list
 
 
 def remove_from_list_all_negative_numbers(data: List[int]) -> list:
+
     """
     Use loops to solve this task.
     You could use data.remove(negative_number) to solve this issue.
     Also you could create new list with only positive numbers.
     Examples:
         remove_from_list_all_negative_numbers([1, 5, -7, 8, -1])
-        >>> [1, 5, 8]
+         #>>> [1, 5, 8]
     """
-    pass
+    for i in data[:]:
+        if i < 0:
+            data.append(i)
+    return data
 
 
 def alphabet() -> dict:
@@ -166,7 +166,9 @@ def alphabet() -> dict:
         alphabet()
         >>> {"a": 1, "b": 2 ...}
     """
-    pass
+    alphabet = []
+    ["a" : 1, "b" : 2, "c" : 8]
+    return dict(enumerate(alphabet [], start=1))
 
 
 def simple_sort(data: List[int]) -> List[list]:
@@ -178,4 +180,8 @@ def simple_sort(data: List[int]) -> List[list]:
     Returns:
 
     """
-    pass
+    for x in range(len(data)):
+        for y in range(x + 1, len(data)):
+            if data[x] > data[y]:
+                data[x], data[y] = data[y], data[x]
+    return data
