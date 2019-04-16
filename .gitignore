@@ -1,104 +1,189 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+# CURSOR.EDUCATION
+# Python
+# Group
+# "Alphabet"
+# April
+# 03, 2019
+# Homework
 
-# C extensions
-*.so
+"""
+This is a list of functions that should be completed.
+"""
 
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+from typing import Any
+from typing import List
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+class OurAwesomeException(Exception):
+    pass
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-.hypothesis/
-.pytest_cache/
 
-# Translations
-*.mo
-*.pot
+def is_two_object_has_same_value(first: Any, second: Any) -> bool:
 
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
 
-# Flask stuff:
-instance/
-.webassets-cache
+    """
+    If @first and @second has same value should return True
+    In another case should return False
+    """
+    return first == second
 
-# Scrapy stuff:
-.scrapy
+def is_two_objects_has_same_type(first: Any, second: Any) -> bool:
 
-# Sphinx documentation
-docs/_build/
 
-# PyBuilder
-target/
+    """
+    If @first and @second has same type should return True
+    In another case should return False
+    """
+    return type(first) is type(second)
 
-# Jupyter Notebook
-.ipynb_checkpoints
+def is_two_objects_is_the_same_objects(first: Any, second: Any) -> bool:
 
-# pyenv
-.python-version
 
-# celery beat schedule file
-celerybeat-schedule
 
-# SageMath parsed files
-*.sage.py
+    """
+    If @first and @second has same type should return True
+    In another case should return False
+    """
+    return first is second
 
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
 
-# Spyder project settings
-.spyderproject
-.spyproject
+def multiple_ints(first_value: int, second_value: int) -> int:
 
-# Rope project settings
-.ropeproject
 
-# mkdocs documentation
-/site
+    """
+    Should calculate product of all args.
+    if first_value or second_value is not int should raise ValueError
 
-# mypy
-.mypy_cache/
+    Raises:
+        ValueError
+
+    Params:
+        first_value: value for multiply
+        second_value
+    Returns:
+        Product of elements
+    """
+
+    if type(first_value) is not int or type(second_value) is not int:
+        raise ValueError()
+    return first_value * second_value
+
+
+
+def multiple_ints_with_conversion(first_value: Any, second_value: Any) -> int:
+
+
+
+    """
+    If possible to convert arguments to int value - convert and multiply them.
+    If it is impossible raise OurAwesomeException
+
+    Args:
+        first_value: number for multiply
+        second_value: number for multiply
+
+    Raises:
+        OurAwesomeException
+
+    Returns: multiple of two numbers.
+
+    Examples:
+        multiple_ints_with_conversion(6, 6)
+        >>> 36
+        multiple_ints_with_conversion(2, 2.0)
+        >>> 4
+        multiple_ints_with_conversion("12", 1)
+        >>> 12
+        try:
+            multiple_ints_with_conversion("Hello", 2)
+        except ValueError:
+            print("Not valid input data")
+        >>> "Not valid input data"
+    """
+    try:
+        first_value = int(first_value)
+        second_value = int(second_value)
+        return first_value * second_value
+    except Exception:
+        raise OurAwesomeException
+
+
+def is_word_in_text(word: str, text: str) -> bool:
+
+
+    """
+    If text contain word return True
+    In another case return False.
+
+    Args:
+        word: Searchable substring
+        text: Text for searching
+
+    Examples:
+        is_word_in_text("Hello", "Hello word")
+        >>> True
+        is_word_in_text("Glad", "Nice to meet you ")
+        >>> False
+
+    """
+    return word in text
+
+
+def some_loop_exercise() -> list:
+    """
+        Use loop to create list that contain int values from 0 to 12 except 6 and 7
+    """
+    first_list = []
+    ban_value = [6, 7]
+    for i in range(0, 13):
+        if i not in ban_value :
+            first_list.append(i)
+    return first_list
+
+
+def remove_from_list_all_negative_numbers(data: List[int]) -> list:
+
+    """
+    Use loops to solve this task.
+    You could use data.remove(negative_number) to solve this issue.
+    Also you could create new list with only positive numbers.
+    Examples:
+        remove_from_list_all_negative_numbers([1, 5, -7, 8, -1])
+         #>>> [1, 5, 8]
+    """
+    for i in data[:]:
+        if i < 0:
+            data.append(i)
+    return data
+
+
+def alphabet() -> dict:
+    """
+    Create dict which keys is alphabetic characters. And values their number in alphabet
+    Notes You could see an implementaion of this one in test, but create another one
+    Examples:
+        alphabet()
+        >>> {"a": 1, "b": 2 ...}
+    """
+    dict = {}
+    for a, value in enumerate(string.assert_lowercase, 1):
+        dict[a] = value
+
+    return dict
+
+
+def simple_sort(data: List[int]) -> List[list]:
+    """
+    Sort list of ints without using built-in methods.
+    Examples:
+        simple_sort([2, 9, 6, 7, 3, 2, 1])
+        >>> [1, 2, 2, 3, 6, 7, 9]
+    Returns:
+
+    """
+
+    for i in range(len(data)):
+        for j in range(i + 1, len(data)):
+            if data[i] > data[j]:
+                data[i], data[j] = data[j], data[i]
+    return data
