@@ -164,6 +164,7 @@ def alphabet() -> dict:
            >>> {"a": 1, "b": 2 ...}
     """
     import string
+    dict = {}
     for a, value in enumerate(string.ascii_lowercase, 1):
         dict[a] = value
     return dict
