@@ -1,14 +1,8 @@
-# CURSOR.EDUCATION
-# Python
-# Group
-# "Alphabet"
-# April
-# 03, 2019
-# Homework
+import string
 
-"""
-This is a list of functions that should be completed.
-"""
+    """
+    This is a list of functions that should be completed.
+    """
 
 from typing import Any
 from typing import List
@@ -163,7 +157,6 @@ def alphabet() -> dict:
         alphabet()
            >>> {"a": 1, "b": 2 ...}
     """
-    import string
     dict = {}
     for a, value in enumerate(string.ascii_lowercase, 1):
         dict[a] = value
